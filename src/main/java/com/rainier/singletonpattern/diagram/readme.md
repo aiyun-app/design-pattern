@@ -13,28 +13,44 @@
 1. 饿汉式  
    饿汉式分为两种方式  
    第一种方式是直接初始化静态成员变量，保证在任何线程访问之前已经创建类实例，并且通过final 关键字确保静态成员变量不被修改    
-   public class CodeGenerator {  
-         private static final CodeGenerator INSTANCE = new CodeGenerator();  
-         private  CodeGenerator(){ }  
-         public static final CodeGenerator getInstance(){  
-            return INSTANCE;  
-         }  
-   }   
+  public class CodeGenerator {
+
+    //饿汉式，直接初始化静态成员变量
+    private static final CodeGenerator INSTANCE = new CodeGenerator();
+
+    private  CodeGenerator(){
+
+    }
+
+    public static final CodeGenerator getInstance(){
+        return INSTANCE;
+    }
+
+    public void getNextCode(){
+        System.out.println("生成新单号");
+    }
+}
 
    第二种方式是通过静态代码块的方式，效果与第一种相同  
-   public class CodeGenerator2 {  
+  public class CodeGenerator2 {
 
-    private static final CodeGenerator2 INSTANCE ;  
-    static {  
-          INSTANCE = new CodeGenerator2();  
-    }  
+    //饿汉式，在静态代码块中初始化静态成员变量
+    private static final CodeGenerator2 INSTANCE ;
+    static {
+        INSTANCE = new CodeGenerator2();
+    }
 
-    private CodeGenerator2(){}  
+    private CodeGenerator2(){}
 
-    public static final CodeGenerator2 getInstance(){  
-          return INSTANCE;  
-    }  
-  }  
+    public static final CodeGenerator2 getInstance(){
+        return INSTANCE;
+    }
+
+    public void getNextCode(){
+        System.out.println("生成新单号");
+    }
+}
+
     
 2. 懒汉式  
 
