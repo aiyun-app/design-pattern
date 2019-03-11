@@ -12,16 +12,11 @@
    饿汉式分为两种方式  
    第一种方式是直接初始化静态成员变量，保证在任何线程访问之前已经创建类实例，并且通过final 关键字确保静态成员变量不被修改    
    public class CodeGenerator {  
-
-      private static final CodeGenerator INSTANCE = new CodeGenerator();  
-
-      private  CodeGenerator(){  
-
-      }  
-
-      public static final CodeGenerator getInstance(){  
-          return INSTANCE;  
-      }  
+         private static final CodeGenerator INSTANCE = new CodeGenerator();  
+         private  CodeGenerator(){ }  
+         public static final CodeGenerator getInstance(){  
+            return INSTANCE;  
+         }  
    }   
 
    第二种方式是通过静态代码块的方式，效果与第一种相同  
