@@ -6,3 +6,20 @@
 在下面的情况下可以使用 Singleton模式  
 • 当类只能有一个实例而且客户可以从一个众所周知的访问点访问它时。  
 • 当这个唯一实例应该是通过子类化可扩展的，并且客户应该无需更改代码就能使用一个扩展的实例时。  
+
+单例模式的实现分为如下几种情况  
+1. 饿汉式  
+   饿汉式分为两种方式  
+   第一种方式是直接初始化静态成员变量，保证在任何线程访问之前已经创建类实例，并且通过final 关键字确保静态成员变量不被修改    
+   private static final CodeGenerator INSTANCE = new CodeGenerator();  
+   第二种方式是通过静态代码块的方式，效果与第一种相同
+   private static final CodeGenerator2 INSTANCE ;  
+    static {  
+        INSTANCE = new CodeGenerator2();  
+    }  
+    
+2. 懒汉式  
+
+3. 注册式
+
+
