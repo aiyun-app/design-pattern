@@ -31,8 +31,8 @@
     }
 }
 
-   第二种方式是通过静态代码块的方式，效果与第一种相同  
-  public class CodeGenerator2 {
+ 第二种方式是通过静态代码块的方式，效果与第一种相同  
+public class CodeGenerator2 {
 
     //饿汉式，在静态代码块中初始化静态成员变量
     private static final CodeGenerator2 INSTANCE ;
@@ -50,6 +50,7 @@
         System.out.println("生成新单号");
     }
 }
+
 
     
 2. 懒汉式  
