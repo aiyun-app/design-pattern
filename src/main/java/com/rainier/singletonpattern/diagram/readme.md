@@ -12,8 +12,9 @@
 单例模式的实现分为如下几种情况  
 1. 饿汉式  
    饿汉式分为两种方式  
-   第一种方式是直接初始化静态成员变量，保证在任何线程访问之前已经创建类实例，并且通过final 关键字确保静态成员变量不被修改    
-  public class CodeGenerator {
+   第一种方式是直接初始化静态成员变量，保证在任何线程访问之前已经创建类实例，并且通过final 关键字确保静态成员变量不被修改      
+  
+public class CodeGenerator {
 
     //饿汉式，直接初始化静态成员变量
     private static final CodeGenerator INSTANCE = new CodeGenerator();
@@ -30,6 +31,8 @@
         System.out.println("生成新单号");
     }
 }
+
+
 
  第二种方式是通过静态代码块的方式，效果与第一种相同  
 public class CodeGenerator2 {
