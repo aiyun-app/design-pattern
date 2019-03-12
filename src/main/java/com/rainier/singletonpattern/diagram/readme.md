@@ -76,7 +76,7 @@ public class SimpleCodeGenerator {
     }
 }
 
-双重检查方式实现单例模式，通过加锁并且两次检查类是否已经被实例化确保单实例
+双重检查方式实现单例模式，通过加锁并且两次检查类是否已经被实例化确保单实例  
 public class DoubleCheckCodeGenerator {
 
     // java中使用双重检查锁定机制,由于Java编译器和JIT的优化的原因系统无法保证我们期望的执行次序。
