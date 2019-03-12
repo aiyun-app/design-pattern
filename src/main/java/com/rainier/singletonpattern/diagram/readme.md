@@ -118,7 +118,7 @@ public class DoubleCheckCodeGenerator {
     }
 }
 
-
+内部静态类方式实现单例模式  
 根据jvm规范，当某对象第一次调用InnerClassCodeGenerator.getInstance()时，InnerClassCodeGenerator类被首次主动使用，jvm对其进行初始化（此时并不会调用InnerClassCodeGenerator()构造方法;进行InnerClassCodeGenerator的类加载，初始化静态变量），然后InnerClassCodeGenerator调用getInstance()方法，该方法中，又首次主动调用了CodeGeneratorHandler类，所以要对CodeGeneratorHandler类进行初始化（类的静态变量首先加载，进行初始化），初始化中，INSTANCE常量被赋值时才调用了 InnerClassCodeGenerator的构造方法InnerClassCodeGenerator()，完成了实例化并返回该实例。
 当再有对象（也许是在别的线程中）再次调用InnerClassCodeGenerator.getInstance()时，因为已经初始化过了，不会再进行初始化步骤，所以直接返回INSTANCE常量即同一个InnerClassCodeGenerator实例。  
 
