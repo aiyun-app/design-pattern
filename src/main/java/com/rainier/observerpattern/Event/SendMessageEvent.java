@@ -1,7 +1,5 @@
 package com.rainier.observerpattern.Event;
 
-import com.rainier.observerpattern.my.core.Event;
-
 public class SendMessageEvent extends Event {
     private String userName;
     private String question;

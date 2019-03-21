@@ -1,5 +1,7 @@
 package com.rainier.observerpattern.my.core;
 
+import com.rainier.observerpattern.Event.Event;
+
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Iterator;
