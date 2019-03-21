@@ -5,9 +5,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public class ContainerCodeGenerator {
+
     private ContainerCodeGenerator(){}
+
     private static Map<String,Object> containier = new ConcurrentHashMap<String,Object>();
+
     public static Object getInstance(String className){
+
         synchronized (containier) {
             if (!containier.containsKey(className)) {
                 Object obj = null;

@@ -7,8 +7,7 @@ public class Client {
     public static void main(String[] args) {
 
 
-        Order order = new Order("00002", BigDecimal.valueOf(20000));
-        order.calculate();
+        new Order("00002", BigDecimal.valueOf(20000)).calculate();
 
     }
 }

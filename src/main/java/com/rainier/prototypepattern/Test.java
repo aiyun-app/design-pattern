@@ -37,8 +37,5 @@ public class Test {
         System.out.println("Article2:" + article2);
         System.out.println(article.getTags() == article2.getTags());
 
-
-
-
     }
 }

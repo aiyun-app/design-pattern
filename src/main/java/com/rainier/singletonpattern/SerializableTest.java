@@ -1,7 +1,6 @@
 package com.rainier.singletonpattern;
 
-import com.rainier.singletonpattern.hungry.CodeGenerator;
-import com.rainier.singletonpattern.hungry.UpgradeCodeGenerator;
+
 import com.rainier.singletonpattern.lazy.UpgradeDoubleCheckCodeGenerator;
 
 import java.io.*;
@@ -22,15 +21,6 @@ public class SerializableTest{
             fileOutputStream = new FileOutputStream("SeriableSingleton.obj");
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(obj);
-            objectOutputStream.flush();
-
-
-            fileInputStream = new FileInputStream("SeriableSingleton.obj");
-            objectInputStream = new ObjectInputStream(fileInputStream);
-            Object obj2 = objectInputStream.readObject();
-
-            System.out.println(obj);
-            System.out.println(obj2);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -38,6 +28,7 @@ public class SerializableTest{
         finally {
             if (objectOutputStream != null) {
                 try {
+                    objectOutputStream.flush();
                     objectOutputStream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -51,6 +42,23 @@ public class SerializableTest{
                     e.printStackTrace();
                 }
             }
+
+        }
+
+
+        try {
+
+            fileInputStream = new FileInputStream("SeriableSingleton.obj");
+            objectInputStream = new ObjectInputStream(fileInputStream);
+            Object obj2 = objectInputStream.readObject();
+
+            System.out.println(obj);
+            System.out.println(obj2);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
 
             if (objectInputStream != null) {
                 try {
@@ -69,5 +77,6 @@ public class SerializableTest{
             }
 
         }
+
     }
 }
